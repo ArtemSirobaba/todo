@@ -5,19 +5,14 @@ import Layout from '../components/layout'
 
 const IndexPage = () => (
   <Layout>
-    <Link to="/todo">
+    <Link to="/todo" className="flex justify-center">
       <StaticImage
-        src="../images/todo.jpeg"
+        src="../images/todo.png"
         quality={100}
-        style={{
-          height: '100%',
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
+        className="p-4 w-1/2"
         loading="lazy"
         placeholder="blurred"
-        alt="A Gatsby astronaut"
+        alt="todo"
       />
     </Link>
   </Layout>

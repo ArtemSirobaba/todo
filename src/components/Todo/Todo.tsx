@@ -7,17 +7,14 @@ interface Todos {
 
 const Todo = (): JSX.Element => {
   const [value, setValue] = useState<string>('')
-  const [todo, setTodo] = useState<Todos[]>([])
-
+  const [todo, setTodo] = useState<Todos[]>([
+    { text: 'Your first ToDo', complete: false },
+  ])
   useEffect(() => {
-    const getFromLocal = () => {
-      const fromLocal = JSON.parse(localStorage.getItem('todos'))
-      if (fromLocal === undefined) setTodo([])
-      setTodo(fromLocal)
-    }
-    getFromLocal()
-  }, [])
-
+    const fromStorage = JSON.parse(localStorage.getItem('todos')) || []
+    setTodo(fromStorage)
+  },[])
+  
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todo))
   }, [todo])
