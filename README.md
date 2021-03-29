@@ -1,6 +1,6 @@
 
-TODO-APP
-ToDo App is simple and awesome app to organize your tasks with very easy to use interface.
+# TODO-APP
+Todo-app is simple and awesome app to organize your tasks with very easy to use interface.
 
 Link: 
 
