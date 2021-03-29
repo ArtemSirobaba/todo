@@ -8,10 +8,11 @@ interface Todos {
 const Todo = (): JSX.Element => {
   const [value, setValue] = useState<string>('')
   const [todo, setTodo] = useState<Todos[]>([])
+
   useEffect(() => {
     const getFromLocal = () => {
       const fromLocal = JSON.parse(localStorage.getItem('todos'))
-      if (fromLocal === undefined) return
+      if (fromLocal === undefined) setTodo([])
       setTodo(fromLocal)
     }
     getFromLocal()
