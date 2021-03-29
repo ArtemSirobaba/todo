@@ -7,10 +7,15 @@ interface Todos {
 
 const Todo = (): JSX.Element => {
   const [value, setValue] = useState<string>('')
-  const [todo, setTodo] = useState<Todos[]>(() => {
-    const localData = JSON.parse(localStorage.getItem('todos'))
-    return localData ? localData : []
-  })
+  const [todo, setTodo] = useState<Todos[]>([])
+  useEffect(() => {
+    const getFromLocal = () => {
+      const fromLocal = JSON.parse(localStorage.getItem('todos'))
+      if (fromLocal === undefined) return
+      setTodo(fromLocal)
+    }
+    getFromLocal()
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todo))
@@ -40,7 +45,7 @@ const Todo = (): JSX.Element => {
       .concat(todo.slice(index + 1, todo.length))
     setTodo(newTodos)
   }
-  
+
   return (
     <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
       <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
