@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
-interface Todos {
+interface Todo {
   text: string
-  complete: boolean
+  completed: boolean
 }
 
 const Todo = (): JSX.Element => {
   const [value, setValue] = useState<string>('')
-  const [todo, setTodo] = useState<Todos[]>([])
+  const [todo, setTodo] = useState<Todo[]>([])
   useEffect(() => {
     const fromStorage = JSON.parse(localStorage.getItem('todos')) || []
     setTodo(fromStorage)
@@ -25,18 +25,18 @@ const Todo = (): JSX.Element => {
 
   const addTodo = (text: string) => {
     if (text.length === 0) return
-    const newTodos: Todos[] = [...todo, { text, complete: false }]
+    const newTodos: Todo[] = [...todo, { text, completed: false }]
     setTodo(newTodos)
   }
   const completeTodo = (index: number) => {
-    const newTodos: Todos[] = todo.map((item, idx) =>
-      idx === index ? { text: item.text, complete: !item.complete } : item
+    const newTodos: Todo[] = todo.map((item, idx) =>
+      idx === index ? { text: item.text, completed: !item.completed } : item
     )
     setTodo(newTodos)
   }
 
   const removeTodo = (index: number) => {
-    const newTodos: Todos[] = todo
+    const newTodos: Todo[] = todo
       .slice(0, index)
       .concat(todo.slice(index + 1, todo.length))
     setTodo(newTodos)
@@ -69,18 +69,18 @@ const Todo = (): JSX.Element => {
               <p
                 className={
                   'w-full text-green break-all ' +
-                  `${item.complete ? 'line-through' : ''}`
+                  `${item.completed ? 'line-through' : ''}`
                 }
               >
                 {item.text}
               </p>
               <input
                 type="submit"
-                value={!item.complete ? 'Done' : 'Not Done'}
+                value={!item.completed ? 'Done' : 'Not Done'}
                 className={
                   'cursor-pointer flex-no-shrink p-2 ml-4 mr-2 border-2 outline-none rounded hover:text-white ' +
                   `${
-                    !item.complete
+                    !item.completed
                       ? 'border-green-500 hover:bg-green-500'
                       : 'text-gray border-gray-500 hover:bg-gray-500'
                   }`
