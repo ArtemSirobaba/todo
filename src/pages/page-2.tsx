@@ -1,14 +1,10 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/layout'
+import Song from '../components/Song'
 
 const SecondPage = () => (
   <Layout>
-    <div>
-      <h1>Hi from the second page</h1>
-      <Link to="/">Go back to the homepage</Link>
-    </div>
+    <Song />
   </Layout>
 )
 
