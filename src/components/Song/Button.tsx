@@ -12,7 +12,7 @@ const Button = ({ sound, name }: ButtonProps) => {
   return (
     <div>
       <input
-        className="cursor-pointer m-2  pt-2 pb-2 px-4 w-32 h-12 rounded-md bg-gray-500 text-white"
+        className="cursor-pointer m-2  pt-1 pb-1 px-2 w-20 h-20 whitespace-normal rounded-md text-xs bg-gray-500 text-white sm:text-xl sm:w-32"
         onClick={(event: React.MouseEvent<HTMLElement>) => play()}
         type="submit"
         value={name}
