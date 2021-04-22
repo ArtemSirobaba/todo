@@ -20,13 +20,13 @@ import Button from './Button'
 const Song = () => {
   return (
     <div className="flex justify-center items-center flex-col">
-      <div className="flex justify-between w-54">
+      <div className="flex justify-between mt-10">
         <Button name="WORK IT" sound={workit} />
         <Button name="MAKE IT" sound={makeit} />
         <Button name="DO IT" sound={doit} />
         <Button name="MAKES US" sound={makesus} />
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-10">
         <Button name="HARDER" sound={harder} />
         <Button name="BETTER" sound={better} />
         <Button name="FASTER" sound={faster} />
