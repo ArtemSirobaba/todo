@@ -6,10 +6,7 @@ import nameArray from './nameArray'
 const Song = () => {
   const data = useStaticQuery(graphql`
     {
-      allFile(
-        filter: { extension: { eq: "mp3" } }
-        sort: { fields: sourceInstanceName }
-      ) {
+      allFile(filter: { extension: { eq: "mp3" } }) {
         edges {
           node {
             publicURL
@@ -18,11 +15,14 @@ const Song = () => {
       }
     }
   `)
-
+    const newData = data.allFile.edges.sort(
+      (a: any, b: any) => a.node.publicURL - b.node.publicURL
+    )
+    console.log(newData)
   return (
     <div className="flex justify-center mt-10">
       <div className="grid grid-cols-4">
-        {data.allFile.edges.map((file: any, index: number) => (
+        {newData.map((file: any, index: number) => (
           <Button
             key={file.node.publicURL}
             num={index}
