@@ -21,7 +21,8 @@ const Song = () => {
       <div className="grid grid-cols-4">
         {data.allFile.edges.map((file: any, index: number) => (
           <Button
-            key={file.node.publicURL}
+            playbackRate={1}
+            key={file.node.name}
             num={index}
             name={file.node.name.split('-').join(' ').slice(3)}
             sound={file.node.publicURL}
