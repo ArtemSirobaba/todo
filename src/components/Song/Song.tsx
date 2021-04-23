@@ -6,7 +6,10 @@ import nameArray from './nameArray'
 const Song = () => {
   const data = useStaticQuery(graphql`
     {
-      allFile(filter: { extension: { eq: "mp3" } }, sort: { fields: uid }) {
+      allFile(
+        filter: { extension: { eq: "mp3" } }
+        sort: { fields: sourceInstanceName }
+      ) {
         edges {
           node {
             publicURL
