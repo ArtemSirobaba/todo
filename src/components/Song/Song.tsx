@@ -23,7 +23,7 @@ const Song = () => {
           <Button
             key={file.node.publicURL}
             num={index}
-            name={file.node.name.split('-').join(' ')}
+            name={file.node.name.split('-').join(' ').slice(3)}
             sound={file.node.publicURL}
           />
         ))}
