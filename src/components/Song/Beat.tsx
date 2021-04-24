@@ -30,7 +30,9 @@ const Beat = () => {
         type="submit"
         value="Beat"
         onClick={handleSound}
-        className={`bg-transparent text-xs sm:text-xl border-2 px-4 p-1 rounded-md text-white ${isPlay ? 'border-yellow-600' : ''}`}
+        className={`bg-transparent outline-none cursor-pointer text-xs sm:text-xl border-2 px-4 p-1 rounded-md text-white ${
+          isPlay ? 'border-yellow-600' : ''
+        }`}
       />
     </div>
   )
