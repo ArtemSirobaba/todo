@@ -23,14 +23,14 @@ const Beat = () => {
       setIsPlay(false)
     }
   }
-  
+
   return (
     <div className="relative left-12 sm:left-24 flex items-center">
       <input
         type="submit"
         value="Beat"
         onClick={handleSound}
-        className="bg-transparent text-xs sm:text-xl border-2 px-4 p-1 rounded-md text-white"
+        className={`bg-transparent text-xs sm:text-xl border-2 px-4 p-1 rounded-md text-white ${isPlay ? 'border-yellow-600' : ''}`}
       />
     </div>
   )
