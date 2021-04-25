@@ -9,7 +9,7 @@ type ModeProps = {
 const Mode = ({ speed, changeSpeed }: ModeProps) => {
   return (
     <div className="flex">
-      <div className="relative right-14 sm:right-[102px]">
+      <div className="relative flex flex-col mn:flex-row right-14 sm:right-[102px]">
         <input
           className={`bg-transparent outline-none text-xs sm:text-xl border-2 m-2 text-white p-1 rounded-md cursor-pointer ${
             speed === 1 ? 'border-green-400' : ''
