@@ -40,10 +40,16 @@ const Navigation = ({}) => {
           </Link>
 
           <Link
-            to="/page-2"
+            to="/duft-punk"
             className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
           >
-            Page Two
+            Duft Punk
+          </Link>
+          <Link
+            to="/queen"
+            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+          >
+            Queen
           </Link>
         </div>
       </div>
