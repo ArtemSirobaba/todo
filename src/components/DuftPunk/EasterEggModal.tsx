@@ -13,7 +13,7 @@ const EasterEggModal = ({ onClose }: EasterEggModal) => {
           <div className="flex items-start justify-between p-4 border-b border-solid border-blueGray-200 rounded-t">
             <h3 className="text-3xl font-semibold">BOOOM!</h3>
           </div>
-          <div className="w-96 h-56 sm:h-[350px] sm:w-[600px]">
+          <div className="w-56 h-32 mn:w-96 mn:h-56 sm:h-[350px] sm:w-[600px]">
             <ReactPlayer
               url="https://www.youtube.com/watch?v=9sjWU5dGcGI"
               width="100%"
