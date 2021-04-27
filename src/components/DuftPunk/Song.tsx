@@ -7,7 +7,7 @@ import EasterEggModal from './EasterEggModal'
 const Song = () => {
   const [speed, setSpeed] = useState(1)
   const [nameArray, setNameArray] = useState([])
-  const [easterEgg, setEasterEgg] = useState(false)
+  const [easterEgg, setEasterEgg] = useState(true)
   const [color, setColor] = useState('border-green-400')
   const data = useStaticQuery(graphql`
     {
