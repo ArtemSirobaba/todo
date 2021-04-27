@@ -36,14 +36,14 @@ const Queen = () => {
     }
   }
 
-  const handleAutoPlay = () => {
-    setAutoPlay(!autoPlay) 
+  const handleAutoPlay = async () => {
+    setAutoPlay(!autoPlay)
   }
   return (
     <div className="flex flex-col justify-center items-center h-[80vh]">
       <div>
         <input
-          className="p-4 m-2 rounded-xl cursor-pointer border-2 border-red-600 hover:bg-red-600 sm:text-lg hover:text-white sm:px-10 sm:p-8 outline-none"
+          className='p-4 m-2 rounded-xl cursor-pointer border-2 border-red-600 hover:bg-red-600 sm:text-lg hover:text-white sm:px-10 sm:p-8 outline-none'
           value="Beat-1 (V key)"
           type="submit"
           onClick={(event: React.MouseEvent<HTMLElement>) => beat1()}

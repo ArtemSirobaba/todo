@@ -1,7 +1,7 @@
 import React from 'react'
 import Beat from './Beat'
 
-type ModeProps = {
+interface ModeProps {
   speed: number
   changeSpeed: any
 }
@@ -35,7 +35,6 @@ const Mode = ({ speed, changeSpeed }: ModeProps) => {
           onClick={() => changeSpeed(1.2, 'border-blue-400')}
         />
       </div>
-
       <Beat />
     </div>
   )
