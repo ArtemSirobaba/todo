@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
+import React, { FC, useEffect, useState } from 'react'
 import Button from './Button'
-import Mode from './Mode'
 import EasterEggModal from './EasterEggModal'
+import Mode from './Mode'
 
-const Song = () => {
-  const [speed, setSpeed] = useState(1)
-  const [nameArray, setNameArray] = useState([])
-  const [easterEgg, setEasterEgg] = useState(false)
-  const [color, setColor] = useState('border-green-400')
+const Song: FC = () => {
+  const [speed, setSpeed] = useState<number>(1)
+  const [nameArray, setNameArray] = useState<string[]>([])
+  const [easterEgg, setEasterEgg] = useState<boolean>(false)
+  const [color, setColor] = useState<string>('border-green-400')
   const data = useStaticQuery(graphql`
     {
       allFile(
@@ -47,7 +47,9 @@ const Song = () => {
           />
         ))}
       </div>
-      {easterEgg ? <EasterEggModal onClose={() => setEasterEgg(false)} /> : null}
+      {easterEgg ? (
+        <EasterEggModal onClose={() => setEasterEgg(false)} />
+      ) : null}
       <Mode
         changeSpeed={(speed: number, color: string) => {
           setSpeed(speed)

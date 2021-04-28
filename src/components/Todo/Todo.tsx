@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FC } from 'react'
 
-interface Todo {
+interface TodoType {
   text: string
   completed: boolean
 }
 
-const Todo = (): JSX.Element => {
+const Todo: FC = () => {
   const [value, setValue] = useState<string>('')
-  const [todo, setTodo] = useState<Todo[]>([])
+  const [todo, setTodo] = useState<TodoType[]>([])
   useEffect(() => {
     const fromStorage = JSON.parse(localStorage.getItem('todos')) || []
     setTodo(fromStorage)
-  },[])
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todo))
@@ -25,18 +25,18 @@ const Todo = (): JSX.Element => {
 
   const addTodo = (text: string) => {
     if (text.length === 0) return
-    const newTodos: Todo[] = [...todo, { text, completed: false }]
+    const newTodos: TodoType[] = [...todo, { text, completed: false }]
     setTodo(newTodos)
   }
   const completeTodo = (index: number) => {
-    const newTodos: Todo[] = todo.map((item, idx) =>
+    const newTodos: TodoType[] = todo.map((item, idx) =>
       idx === index ? { text: item.text, completed: !item.completed } : item
     )
     setTodo(newTodos)
   }
 
   const removeTodo = (index: number) => {
-    const newTodos: Todo[] = todo
+    const newTodos: TodoType[] = todo
       .slice(0, index)
       .concat(todo.slice(index + 1, todo.length))
     setTodo(newTodos)

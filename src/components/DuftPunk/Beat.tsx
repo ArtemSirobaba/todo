@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, {FC, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import useSound from 'use-sound'
 
-const Beat = () => {
+const Beat: FC = () => {
   const data = useStaticQuery(graphql`
     {
       file(name: { eq: "duft-punk" }) {
@@ -12,9 +12,9 @@ const Beat = () => {
   `)
 
   const [play, { stop }] = useSound(data.file.publicURL)
-  const [isPlay, setIsPlay] = useState(false)
+  const [isPlay, setIsPlay] = useState<boolean>(false)
 
-  const handleSound = (event: React.MouseEvent<HTMLElement>) => {
+  const handleSound = (event: React.MouseEvent<HTMLButtonElement>) => {
     if (!isPlay) {
       play()
       setIsPlay(true)

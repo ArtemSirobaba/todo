@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC } from 'react'
 import useSound from 'use-sound'
 
 interface ButtonProps {
@@ -7,18 +7,17 @@ interface ButtonProps {
   num: number
   playbackRate: number
   color: string
-  easterEgg: (name: string) => void;
+  easterEgg: (name: string) => void
 }
 
-const Button = ({
+const Button: FC<ButtonProps> = ({
   sound,
   name,
   num,
   playbackRate,
   color,
   easterEgg,
-}: ButtonProps) => {
-
+}) => {
   const [play] = useSound(sound, { playbackRate })
 
   return (
@@ -27,7 +26,7 @@ const Button = ({
     >
       <input
         className={`cursor-pointer outline-none m-2 bg-transparent border-2 ${color} border-opacity-100 mn:pt-1 mn:pb-1 mn:px-2 w-20 h-16 whitespace-normal rounded-md text-[10px] text-white sm:text-xl sm:w-32 sm:h-24`}
-        onClick={(event: React.MouseEvent<HTMLElement>) => {
+        onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
           play()
           easterEgg(name)
         }}

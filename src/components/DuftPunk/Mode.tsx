@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Beat from './Beat'
 
 interface ModeProps {
   speed: number
-  changeSpeed: any
+  changeSpeed: (speed: number, color: string) => void
 }
 
-const Mode = ({ speed, changeSpeed }: ModeProps) => {
+const Mode: FC<ModeProps> = ({ speed, changeSpeed }) => {
   return (
     <div className="flex">
       <div className="relative flex flex-col mn:flex-row right-14 sm:right-[102px]">
