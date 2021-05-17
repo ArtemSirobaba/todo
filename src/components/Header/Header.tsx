@@ -51,6 +51,12 @@ const Navigation = ({}) => {
           >
             Queen
           </Link>
+          <Link
+            to="/todoredux"
+            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+          >
+            ToDo Redux Toolkit
+          </Link>
         </div>
       </div>
     </nav>
